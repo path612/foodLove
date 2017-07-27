@@ -1,0 +1,17 @@
+{% extends "main_app/home.html" %}
+{% block food %}
+<ul>
+    {% for lunch in lunches %}
+    <li><strong>{{lunch.submitter}}</strong> just ate <strong>{{lunch.food}}</strong></li>
+
+    {% empty %}
+    <li>NoBody has eaten for a while, Aren't you people hungry</li>
+    {% endfor %}
+</ul>
+
+<form action="{% url 'newlunch' %}" method="post">
+    {% csrf_token %}
+    {{form.as_ul}}
+    <input type="submit" value="I ate this !!"/>
+</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}FoodPal{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <h1>What are people eating?</h1>
+        <p>FoodPal is the latest social network where you can tell all your friends
+            about your food experiences for free!</p>
+
+		<a href="{% url 'login' %}">login</a>
+
+		{% block login %}
+		{% endblock %}
+
+		<a href="{% url 'signup' %}">signup</a>
+
+		{% block content%}
+        {% endblock %}
+
+		<hr>
+    </header>
+    <main>
+      {% block food %}
+      {% endblock %}
+    </main>
+  </body>
+</html>
